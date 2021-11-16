@@ -4,17 +4,24 @@ interface Action{
 }
 
 const incrementadorAction:  Action = {
-    type = 'INCREMENTAR'
+    type : 'INCREMENTAR'
 }
 
 function  reducer( state = 10,  action:Action ){
 
-    if( action.typ === 'INCREMENTAR' ){
+    /*if( action.type === 'INCREMENTAR' ){
 
         return state += 1;
-    }
+    }*/
 
-    return state;
+    switch( action.type ){
+
+        case 'INCREMENTAR':
+            return state += 1;
+
+        default:
+            return state;
+    }
 }
 
-reducer( 10,"Mesi" );
+console.log( reducer( 10, incrementadorAction ) );
